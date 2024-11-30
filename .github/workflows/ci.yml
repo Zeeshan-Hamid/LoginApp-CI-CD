@@ -10,15 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the code from the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Step 2: Set up Java JDK
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '17'
 
-      - name: Compile and Test
+      # Step 3: Compile the Java files
+      - name: Compile Java Code
         run: |
-          javac -cp .:junit-platform-console-standalone.jar *.java
-          java -jar junit-platform-console-standalone.jar --class-path . --scan-class-path
+          mkdir -p bin
+          javac -d bin -cp .:junit-platform-console-standalone.jar *.java
+
+      # Step 4: Run the test cases
+      - name: Run Unit Tests
+        run: |
+          java -jar junit-platform-console-standalone.jar --class-path ./bin --scan-class-path
