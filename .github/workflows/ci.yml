@@ -10,15 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Checkout Code
         uses: actions/checkout@v3
 
+ 
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '17'
+          distribution: 'zulu'
 
-      - name: Compile and Test
+      - name: Compile Java Code
         run: |
-          javac -cp .:junit-platform-console-standalone.jar *.java
-          java -jar junit-platform-console-standalone.jar --class-path . --scan-class-path
+          mkdir -p bin
+          javac -d bin -cp .:junit-platform-console-standalone.jar *.java
+
+  
+      - name: Run Unit Tests
+        run: |
+          java -jar junit-platform-console-standalone.jar --class-path ./bin --scan-class-path
