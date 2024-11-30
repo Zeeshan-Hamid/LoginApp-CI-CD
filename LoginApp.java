@@ -15,6 +15,7 @@ public class LoginApp extends JFrame {
     private static final String DB_PASSWORD = "03052002";
 
     public LoginApp() {
+        System.out.println("Testing CI/CD")
         setTitle("Login Screen CI.CD Pipeline");
         setSize(350, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
