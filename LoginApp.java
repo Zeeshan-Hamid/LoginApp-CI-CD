@@ -77,9 +77,10 @@ public class LoginApp extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            LoginApp loginApp = new LoginApp();
-            loginApp.setVisible(true);
-        });
-    }
+    SwingUtilities.invokeLater(() -> {
+        LoginApp loginApp = new LoginApp();
+        loginApp.setVisible(true);
+        System.out.println("CI/CD pipeline created");
+    });
+}
 }
