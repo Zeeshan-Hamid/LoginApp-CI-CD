@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
           distribution: 'zulu' # Specify Java distribution
 
-      # Step 3: Compile the Java files
+
       - name: Compile Java Code
         run: |
           mkdir -p bin
