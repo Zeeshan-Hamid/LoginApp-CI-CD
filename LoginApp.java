@@ -15,6 +15,7 @@ public class LoginApp extends JFrame {
     private static final String DB_PASSWORD = "03052002";
 
     public LoginApp() {
+        
         setTitle("Login Screen CI.CD Pipeline");
         setSize(350, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,9 +77,10 @@ public class LoginApp extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            LoginApp loginApp = new LoginApp();
-            loginApp.setVisible(true);
-        });
-    }
+    SwingUtilities.invokeLater(() -> {
+        LoginApp loginApp = new LoginApp();
+        loginApp.setVisible(true);
+        System.out.println("Next version of CI/CD pipeline created");
+    });
+}
 }
