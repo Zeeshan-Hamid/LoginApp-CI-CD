@@ -80,7 +80,7 @@ public class LoginApp extends JFrame {
     SwingUtilities.invokeLater(() -> {
         LoginApp loginApp = new LoginApp();
         loginApp.setVisible(true);
-        System.out.println("CI/CD pipeline created");
+        System.out.println("Next version of CI/CD pipeline created");
     });
 }
 }
