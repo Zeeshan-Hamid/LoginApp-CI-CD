@@ -16,7 +16,7 @@ public class LoginApp extends JFrame {
 
     public LoginApp() {
         
-        setTitle("Login Screen");
+        setTitle("Login Screen CI CD Pipeline");
         setSize(350, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
