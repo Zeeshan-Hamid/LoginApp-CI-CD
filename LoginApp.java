@@ -16,8 +16,8 @@ public class LoginApp extends JFrame {
 
     public LoginApp() {
         
-        setTitle("Login Screen CI.CD Pipeline");
-        setSize(350, 200);
+        setTitle("Login Screen");
+        setSize(350, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -80,7 +80,7 @@ public class LoginApp extends JFrame {
     SwingUtilities.invokeLater(() -> {
         LoginApp loginApp = new LoginApp();
         loginApp.setVisible(true);
-        System.out.println("Final version of CI/CD pipeline created");
+       // System.out.println("Final version of CI/CD pipeline created");
     });
 }
 }
