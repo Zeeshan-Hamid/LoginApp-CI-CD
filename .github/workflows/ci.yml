@@ -14,20 +14,27 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Java JDK
+      # Step 2: Set up JDK
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'zulu' # Specify Java distribution
 
+      # Step 3: Download JUnit and Hamcrest JARs
+      - name: Download JUnit JARs
+        run: |
+          curl -O https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
+          curl -O https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.9.3/junit-jupiter-api-5.9.3.jar
+          curl -O https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.9.3/junit-jupiter-engine-5.9.3.jar
 
+      # Step 4: Compile the Java files
       - name: Compile Java Code
         run: |
           mkdir -p bin
-          javac -d bin -cp .:junit-platform-console-standalone.jar *.java
+          javac -d bin -cp .:junit-platform-console-standalone-1.9.3.jar:junit-jupiter-api-5.9.3.jar:junit-jupiter-engine-5.9.3.jar *.java
 
-      # Step 4: Run the test cases
+      # Step 5: Run the test cases
       - name: Run Unit Tests
         run: |
-          java -jar junit-platform-console-standalone.jar --class-path ./bin --scan-class-path
+          java -jar junit-platform-console-standalone-1.9.3.jar --class-path ./bin --scan-class-path
